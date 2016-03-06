@@ -1,11 +1,11 @@
 # Site wide configuration
 
-title: The API Spots
+title: Shindig
 locale: en_US
-description: APIs for Humans
+description: Shindig
 logo: common/site-logo.png
 search: false
-url: http://www.apispots.com
+url: http://shindig.opendashboards.com
 
 # Jekyll configuration
 
@@ -38,6 +38,4 @@ owner:
   twitter: chefArchitect
   github: https://github.com/chefArchitect
   linkedin: chefarchitect
-  google:
-    analytics: UA-57180016-1
- 
+  
