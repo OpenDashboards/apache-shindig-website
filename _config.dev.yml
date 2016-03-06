@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title: Apache Shindig
+title: Shindig
 locale: en_US
-description: Apache Shindig
+description: Shindig
 logo: common/site-logo.png
 search: false
 url: http://localhost:4000
