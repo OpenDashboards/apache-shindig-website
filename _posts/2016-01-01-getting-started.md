@@ -92,4 +92,4 @@ If everything went according to plan, it's time for a final check to see whether
 If everything went according to plan, you should see on your browser the default sample gadget container page that is bundled
 with the standard installation of Shindig.
 
-![Sample common container]({{site.url}}/assets/images/getting-started/common-container.png "Sample common container"){:class='img-responsive'}
+![Sample common container](/assets/images/getting-started/common-container.png "Sample common container"){:class='img-responsive'}
