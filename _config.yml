@@ -5,7 +5,7 @@ locale: en_US
 description: Shindig
 logo: common/site-logo.png
 search: false
-url: http://shindig.opendashboards.com
+url: shindig.opendashboards.com
 
 # Jekyll configuration
 
@@ -38,4 +38,3 @@ owner:
   twitter: chefArchitect
   github: https://github.com/chefArchitect
   linkedin: chefarchitect
-  
