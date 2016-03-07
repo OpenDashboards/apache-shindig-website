@@ -50,7 +50,7 @@ The command will download and install the latest image of the service on the tar
 After the service has been successfully downloaded and installed, it's time to run it.  Copy the following command in the terminal to get it started.
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">
-<span class="gp">$ </span> docker run -d --name="shindig" opendashboards/od-shindig-docker:bootstrap
+<span class="gp">$ </span> docker run -d -p 8080:8080 --name="shindig" opendashboards/od-shindig-docker:bootstrap
 </code></pre></div>  
 
 If the command executes successfully, you should see the ID of the container instance that was just launched by the Docker Engine on the terminal.
