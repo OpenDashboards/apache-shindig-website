@@ -5,7 +5,7 @@ locale: en_US
 description: Shindig
 logo: common/site-logo.png
 search: false
-url: shindig.opendashboards.com
+url: http://shindig.opendashboards.com
 
 # Jekyll configuration
 
