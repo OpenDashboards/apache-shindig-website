@@ -1,11 +1,8 @@
 ---
 layout: docs
-title: Getting started
-headline: Getting started
-description: Download and install Shindig in your environment by following a few simple steps.
-search_omit: true
-categories:
-tags: []
+title: Installing the Shindig container
+headline: Installing the Shindig container
+description: Download and install Shindig in your environment by following a few simple steps
 ---
 
 

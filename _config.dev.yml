@@ -9,7 +9,7 @@ url: http://localhost:4000
 
 # Jekyll configuration
 
-permalink:   /:categories/:title/
+permalink:   none
 markdown:    kramdown
 highlighter: pygments
 sass:
@@ -38,4 +38,3 @@ owner:
   twitter: chefArchitect
   github: https://github.com/chefArchitect
   linkedin: chefarchitect
-  
