@@ -1,12 +1,12 @@
 ---
 layout: docs
-title: Installing the Shindig container
-headline: Installing the Shindig container
-description: Download and install Shindig in your environment by following a few simple steps
+title: Installing Shindig web module using Maven
+headline: Installing the Shindig web module using Maven
+description: Bundle, customize and run the Shindig web module on your favorite Java web app server
 ---
 
 
-# Download
+# Overview
 {:class="page-header"}
 
 Shindig is bundled as a Docker image that can run on virtually any OS environment.
