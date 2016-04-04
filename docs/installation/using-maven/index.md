@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: Installing Shindig web module using Maven
-headline: Installing the Shindig web module using Maven
+title: Building the Shindig web module using Maven
+headline: Building the Shindig web module using Maven
 description: Bundle, customize and run the Shindig web module on your favorite Java web app server
 ---
 
@@ -9,84 +9,124 @@ description: Bundle, customize and run the Shindig web module on your favorite J
 # Overview
 {:class="page-header"}
 
-Shindig is bundled as a Docker image that can run on virtually any OS environment.
+If you prefer managing the installation of Shindig server on an existing application server, this guide
+will take you through a creation of a skeleton project where you can use your custom configuration.
 {:class="lead"}
 
 ## Prerequisites
 
-The only requirement for running the service locally or on any type of server, is to download and install [Docker](http://docker.io){:target="_blank"}.
+[Apache Maven](https://maven.apache.org){:target="_blank"} needs to be downloaded and installed.  
+Follow the detailed instructions from the project's website according to your OS.
 
-<img class='img-responsive' src='https://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png'>
+<img class='img-responsive' src='https://maven.apache.org/images/maven-logo-black-on-white.png'>
 
-> Docker is a platform for developers and sysadmins to develop, ship, and run applications. Docker lets you quickly assemble applications from components and eliminates the friction that can come when shipping code. Docker lets you get your code tested and deployed into production as fast as possible.
+> Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
 
-### Download and install the Docker runtime
+## Create a project skeleton
 
-Download and install the Docker runtime for your type of OS by following the [instructions on the web site](https://docs.docker.com/installation/){:target="_blank"}.   
+> The sample code can be found at the [Github repository](https://github.com/OpenDashboards/od-shindig-docker/tree/master/maven){:target='_blank'}.
 
-## Install the service
+You can easily create a customized version of Shindig that meets your specific requirements, where you can adjust the default Shindig properties
+and containers configuration.
 
-### Download and install the Shindig server image
+Create the following folder structure:
 
-After you have successfully installed the Docker Engine on the target machine, now it's time to download and run the container image that will be hosting the service.  Copy and paste the following command on a terminal:
+<pre><code class="language-bash" data-lang="bash">
+shindig/
+├── src/main/resources
+│   └── containers/
+│       ├─ default/
+│       │    └── container.js
+│       └── shindig.properties
+└── pom.xml
+</code></pre>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span> docker pull opendashboards/od-shindig-docker:bootstrap</code></pre></div>
+### Edit the pom.xml file
 
-The command will download and install the latest image of the service on the target machine.  
+Edit the Maven **pom.xml** configuration file and add the following:
 
-<div class="bs-callout bs-callout-info" id="jquery-required">
-    <h4 id="jquery-required">Heads up</a></h4>
-    <p>Depending on your OS / environment, you might be required to have <b>administrative</b> rights in order to execute the above commands.</p>
-    <p>Also the initial installation of Docker Engine and other images will take some time - depending also on your internet connection -
-    so be patient.
-    </p>
-</div>
+<pre><code class='xml'>
 
-### Start a new Docker container
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
-After the service has been successfully downloaded and installed, it's time to run it.  Copy the following command in the terminal to get it started.
+  &lt;groupId&gt;org.opendashboards.shindig&lt;/groupId&gt;
+  &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+  &lt;artifactId&gt;od-shindig-example&lt;/artifactId&gt;
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">
-<span class="gp">$ </span> docker run -d -p 8080:8080 --name="shindig" opendashboards/od-shindig-docker:bootstrap
-</code></pre></div>  
+  &lt;name&gt;OpenDashboards - Shindig - Example Maven artifact&lt;/name&gt;
 
-If the command executes successfully, you should see the ID of the container instance that was just launched by the Docker Engine on the terminal.
+  &lt;packaging&gt;war&lt;/packaging&gt;
 
-<div class="bs-callout bs-callout-info" id="jquery-required">
-    <h4 id="jquery-required">Service logs</a></h4>
-    <p>
-    Since we launched the service as a background process, there will be no logs printed out in this terminal window.  In order to view any logging
-    activity from the service, you should run the following command on either the same or a different terminal window:
-    </p>
+  &lt;!-- ====================================================================== --&gt;
+  &lt;!-- Properties --&gt;
+  &lt;!-- ====================================================================== --&gt;
+  &lt;properties&gt;
+    &lt;shindig.server&gt;2.5.2&lt;/shindig.server&gt;
+    &lt;plugin.jetty&gt;9.3.8.v20160314&lt;/plugin.jetty&gt;
+  &lt;/properties&gt;
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">
-<span class="gp">$ </span> docker logs -f shindig
-</code></pre></div>
+  &lt;!--====================================================== --&gt;
+  &lt;!-- Dependencies --&gt;
+  &lt;!--====================================================== --&gt;
+  &lt;dependencies&gt;
 
-<p>
-	The <b>-f</b> argument tells Docker to leave the log output stream running forever, i.e. as you will be using the service you will be able to
-	see results in real time printed out in the console.
-</p>
+    &lt;!-- Shindig server --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.shindig&lt;/groupId&gt;
+      &lt;artifactId&gt;shindig-server-dependencies&lt;/artifactId&gt;
+      &lt;version&gt;${shindig.server}&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.shindig&lt;/groupId&gt;
+      &lt;artifactId&gt;shindig-server-resources&lt;/artifactId&gt;
+      &lt;version&gt;${shindig.server}&lt;/version&gt;
+      &lt;type&gt;war&lt;/type&gt;
+    &lt;/dependency&gt;
 
-</div>
+  &lt;/dependencies&gt;
 
-### Managing the container
+  &lt;!--====================================================== --&gt;
+  &lt;!-- Build configuration --&gt;
+  &lt;!--====================================================== --&gt;
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
 
-Once the service container has been started, you can easily manage its state by executing the following Docker command in a terminal window:
+      &lt;!-- Jetty plugin --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+        &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${plugin.jetty}&lt;/version&gt;
+      &lt;/plugin&gt;
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">
-<span class="gp">$ </span> docker <b>start</b> | <b>stop</b> | <b>restart</b> shindig
-</code></pre></div>
+    &lt;/plugins&gt;
 
-Using the appropriate Docker command, you can now start, stop or restart the service.
+    &lt;finalName&gt;ROOT&lt;/finalName&gt;
 
-### Checking everything is in place
+  &lt;/build&gt;
 
-If everything went according to plan, it's time for a final check to see whether our service is up and running.  Open a browser window and point to the following URL
+&lt;/project&gt;
+
+
+</code></pre>
+
+The project's configuration file uses the latest stable version of Shindig web artifacts and bundles them
+into a **.war** package, ready to be deployed to an application server.  For convenience, the
+[Maven Jetty plugin](http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html){:target='_blank'}
+has been included in the POM and you can run the service by typing:
+
+<pre><code class="language-bash" data-lang="bash">
+$ mvn jetty:run-war
+</code></pre>
+
+The command will build and package the Shindig web application and run it locally through Jetty.  Open a browser window and point to the following URL where you should see the default sample gadget container page that is bundled
+with the standard installation of Shindig.
 
 > [http://localhost:8080/containers/commoncontainer](http://localhost:8080/containers/commoncontainer/){:target='_blank'}
-
-If everything went according to plan, you should see on your browser the default sample gadget container page that is bundled
-with the standard installation of Shindig.
 
 ![Sample common container](/assets/images/getting-started/common-container.png "Sample common container"){:class='img-responsive'}

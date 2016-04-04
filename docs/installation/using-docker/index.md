@@ -94,7 +94,7 @@ with the standard installation of Shindig.
 
 ## Customizing the Docker image
 
-The Dockerfile used for the basic bootstrap Shindig image is shown below and can be found at [GitHub](https://github.com/OpenDashboards/od-shindig-docker/blob/master/bootstrap/Dockerfile){:target='_blank'}.
+> The sample code can be found at the [Github repository](https://github.com/OpenDashboards/od-shindig-docker/tree/master/customized){:target='_blank'}.
 
 <pre><code class='docker'>
 
@@ -193,13 +193,4 @@ CMD java -Djava.io.tmpdir=/tmp/jetty -Dshindig.host=$SHINDIG_HOST -Dshindig.port
 
 <pre><code class="language-bash" data-lang="bash">
 $ docker build --tag="opendashboards/od-shindig-docker:customized" .
-</code></pre>
-
-<pre><code class="language-bash" data-lang="bash">
-shindig/
-├── containers/
-│   └── default/
-│       └── container.js
-├── shindig.properties
-└── Dockerfile
 </code></pre>
