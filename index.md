@@ -28,28 +28,42 @@ headline: Shindig is a container for rendering and hosting Google gadgets and Op
       </div>
     </div>
     <hr class="half-rule">
-    <p class="lead">Shindig is open source. It's hosted, developed, and maintained on GitHub by the OpenDashboards community.</p> <a href="https://github.com/OpenDashboards/apache-shindig" class="btn btn-outline btn-lg">View the GitHub project</a> </div>
+    <p class="lead">Shindig is open source. It's hosted, developed, and maintained on GitHub by the OpenDashboards community.</p> <a href="https://github.com/OpenDashboards/apache-shindig" target='_blank' class="btn btn-outline btn-lg">View the GitHub project</a> </div>
 </div>
-
 
 <div class="bs-docs-featurette">
   <div class="container">
     <h2 class="bs-docs-featurette-title">Trusted by the Enterprise.</h2>
     <p class="lead">Used by Google, Atlassian and many other companies, Shindig has been a core technology selection from social websites to app marketplaces and dashboards.</p>
     <hr class="half-rule">
-    <div class="row bs-docs-featured-sites">
-      <div class="col-xs-6 col-sm-3">
-        <a href="#" target="_blank"> <img src="" alt="Company" class="img-responsive"> </a>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <a href="#" target="_blank"> <img src="" alt="Company" class="img-responsive"> </a>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <a href="#" target="_blank"> <img src="" alt="Company" class="img-responsive"> </a> </a>
-      </div>
-      <div class="col-xs-6 col-sm-3">
-        <a href="#" target="_blank"> <img src="" alt="Company" class="img-responsive"> </a>
-      </div>
-    </div>
+
+    {% for company in site.data.companies %}
+
+      {% assign idx = forloop.index | modulo: 3 %}
+
+      {% if idx == 1 %}
+        <div class="row bs-docs-featured-sites">
+
+        <div class="col-xs-6 col-sm-4" style="padding: 10px;"> <img src="{{company.image}}" alt="Image" class="img-responsive" style="height: 128px;">
+          <h3>{{company.name}}</h3>
+          <a href="{{company.url}}" target="_blank"><small>{{company.url}}</small></a>
+          <p>{{company.description}}</p>
+        </div>
+    {% else %}    
+        <div class="col-xs-6 col-sm-4" style="padding: 10px;"> <img src="{{company.image}}" alt="Image" class="img-responsive" style="height: 128px;">
+          <h3>{{company.name}}</h3>
+          <a href="{{company.url}}" target="_blank"><small>{{company.url}}</small></a>
+          <p>{{company.description}}</p>
+        </div>
+      {% endif %}
+
+
+      {% if idx == 0 %}
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+
   </div>
 </div>

@@ -1,0 +1,31 @@
+# Companies using Shindig
+
+- id: google
+  name: Google
+  url: http://www.google.com
+  description: Search the world's information, including webpages, images, videos and more.
+  image: https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_284x96dp.png
+
+- id: atlassian
+  name: Atlassian
+  url: http://www.atlassian.com
+  description: Millions of users globally rely on Atlassian products every day for improving software development, project management, collaboration, and code quality.
+  image: https://design.atlassian.com/images/brand/logo-22.png
+
+- id: blueg
+  name: BlueG
+  url: http://www.blueg.com
+  description: BlueG is the personalized web dashboard and startpage with all of your interests in one place.
+  image: /assets/images/companies/blueg.png
+
+- id: gamesoft
+  name: GameSoft
+  url: http://www.gamesoft.com
+  description: Create your own gaming space with all the games, news and reviews that matter to you.
+  image: /assets/images/companies/gamesoft.png
+
+- id: akazoo
+  name: Akazoo
+  url: http://www.akazoo.com
+  description: Akazoo is a digitial music service for pc and mobile where you can listen to and share millions of songs.
+  image: http://www.tunecore.com/images/cms/akazoo.jpg
