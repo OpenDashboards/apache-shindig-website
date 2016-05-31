@@ -22,7 +22,7 @@ headline: Shindig is a container for rendering and hosting Google gadgets and Op
         <h3>OpenSocial</h3>
         <p>JavaScript environment that sits on top of the Gadget Container JavaScript and provides <a target='_blank' href='https://www.w3.org/blog/2014/12/opensocial-foundation-moves-standards-work-to-w3c-social-web-activity/'>OpenSocial</a> specific functionality (profiles, friends, activities, datastore).</p>
       </div>
-      <div class="col-sm-4"> <img src="" alt="Image" class="img-responsive">
+      <div class="col-sm-4"> <img src="/assets/images/logos/javascript.png" alt="Image" class="img-responsive">
         <h3>Rich feature set</h3>
         <p>Build on top of existing features or create your own that meet your needs.  Pluggable environment of JavaScript features injected into your apps on demand.</p>
       </div>
