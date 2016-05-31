@@ -12,6 +12,12 @@
   description: Millions of users globally rely on Atlassian products every day for improving software development, project management, collaboration, and code quality.
   image: https://design.atlassian.com/images/brand/logo-22.png
 
+- id: IBM
+  name: IBM
+  url: http://www.ibm.com
+  description: IBM manufactures and markets computer hardware, middleware and software, and offers infrastructure, hosting and consulting services in areas ranging from mainframe computers to nanotechnology.
+  image: https://g.foolcdn.com/editorial/images/192256/ibm-logo-new_QwNHZGf_large.jpg
+
 - id: blueg
   name: BlueG
   url: http://www.blueg.com
