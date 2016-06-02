@@ -54,9 +54,3 @@ right side of the screen and you should see '**Hello world**'.
 ![Hello world gadget](/assets/images/examples/gadgets/hello-world.png "Hello world gadget"){:class='img-responsive'}
 
 Congratulations!  You have successfully rendered your first gadget on your new Shindig container.
-
-{:class="table table-bordered table-striped"}
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
