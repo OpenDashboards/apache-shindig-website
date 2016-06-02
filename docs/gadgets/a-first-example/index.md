@@ -54,3 +54,13 @@ right side of the screen and you should see '**Hello world**'.
 ![Hello world gadget](/assets/images/examples/gadgets/hello-world.png "Hello world gadget"){:class='img-responsive'}
 
 Congratulations!  You have successfully rendered your first gadget on your new Shindig container.
+
+<div class="bs-callout bs-callout-info">
+    <h4>Heads up</a></h4>
+    <p>You can find a number of sample gadgets that you can try out using the sample <b>Shindig</b> container
+    at the <a href='/docs/gadgets/sample-gadgets'>Sample gadgets</a> page.
+    </p>
+    <p>
+      Or start writing your own gadgets using the reference material and tutorials on the <a href='https://developers.google.com/gadgets/' target='_blank'>Google Developers Network</a> website.
+    </p>
+</div>
